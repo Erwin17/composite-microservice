@@ -39,6 +39,11 @@ public class GlobalControllerException {
         final String path = serverHttpRequest.getPath().pathWithinApplication().value();
         final String message = ex.getMessage();
 
+        LOG.info("Response global for path: {} with message:  {} and status: {}",
+                path,
+                httpStatus.value(),
+                message);
+
         return new HttpInfo(message, path, httpStatus);
     }
 }
